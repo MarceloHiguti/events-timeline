@@ -31,12 +31,14 @@
     flex: 1 0 auto;
     background-color: #e2e2f6;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    // text-align: center;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
 
     &__borderLeft {
       border-left: 10px solid #585ba2;

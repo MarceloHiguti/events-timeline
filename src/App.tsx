@@ -2,18 +2,24 @@ import { useMemo, useState } from "react";
 import { Timeline } from "./components/Timeline/Timeline";
 import timelineItems from "./services/data/timelineItems";
 import { transformEventsData } from "./utils/events.util";
-import { WeeksHeaderProvider } from "./utils/WeeksHeaderContext.util";
+import { EventsTimelineProvider } from "./utils/EventsTimelineContext.util";
 import { getInitialWeek } from "./utils/date.util";
 
 function App() {
-  const events = useMemo(() => transformEventsData(timelineItems), []);
-  const initialWeekDates = useMemo(() => getInitialWeek(events), [events]);
+  const initialEvents = useMemo(() => transformEventsData(timelineItems), []);
+  const initialWeekDates = useMemo(
+    () => getInitialWeek(initialEvents),
+    [initialEvents]
+  );
   const [weekDates, setWeekDates] = useState(initialWeekDates);
+  const [events, setEvents] = useState(initialEvents);
 
   return (
-    <WeeksHeaderProvider value={{ weekDates, setWeekDates }}>
-      <Timeline events={events} />
-    </WeeksHeaderProvider>
+    <EventsTimelineProvider
+      value={{ weekDates, setWeekDates, events, setEvents }}
+    >
+      <Timeline />
+    </EventsTimelineProvider>
   );
 }
 

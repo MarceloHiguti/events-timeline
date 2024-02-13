@@ -1,4 +1,4 @@
-import { differenceInDays, orderByAscDate } from "./date.util";
+import { orderByAscDate } from "./date.util";
 import {
   ICheckEventInWeekParams,
   IConvertionDatesResults,
@@ -12,7 +12,8 @@ export function transformEventsData(
   const orderedByDate = orderByAscDate(eventsInput);
   return orderedByDate.map(({ id, name, start, end }) => {
     return {
-      eventTitle: `${id} - ${name}`,
+      id,
+      eventTitle: name,
       startDate: start,
       endDate: end,
     };

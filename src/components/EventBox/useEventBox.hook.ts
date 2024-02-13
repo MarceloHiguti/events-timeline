@@ -4,7 +4,7 @@ import {
   checkEventIsInsideWeek,
   checkEventStartingPointOnThisWeek,
 } from "../../utils/events.util";
-import { useWeeksHeaderContext } from "../../utils/WeeksHeaderContext.util";
+import { useEventsTimelineContext } from "../../utils/EventsTimelineContext.util";
 
 interface IEventBoxParams {
   startDate: string;
@@ -23,7 +23,7 @@ export function useEventBox({
   startDate,
   endDate,
 }: IEventBoxParams): IEventBoxResults {
-  const { weekDates } = useWeeksHeaderContext();
+  const { weekDates } = useEventsTimelineContext();
   const isDateInsideWeek = useMemo(
     () => checkEventIsInsideWeek({ weekRange: weekDates, startDate, endDate }),
     [weekDates]

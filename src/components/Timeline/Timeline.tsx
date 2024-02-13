@@ -2,18 +2,13 @@ import { FC } from "react";
 import style from "./Timeline.module.scss";
 import { CalendarHeader } from "../CalendarHeader/CalendarHeader";
 import { EventBox } from "../EventBox/EventBox";
-import { IEventData } from "../../utils/events.model";
-import { useWeeksHeaderContext } from "../../utils/WeeksHeaderContext.util";
 import { HeaderOptions } from "../HeaderOptions/HeaderOptions";
 import { CoreTypography } from "../CoreTypography/CoreTypography";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { useEventsTimelineContext } from "../../utils/EventsTimelineContext.util";
 
-interface ITimeline {
-  events: Array<IEventData>;
-}
-
-export const Timeline: FC<ITimeline> = ({ events }) => {
-  const { weekDates } = useWeeksHeaderContext();
+export const Timeline: FC = () => {
+  const { weekDates, events } = useEventsTimelineContext();
 
   return (
     <div className={style.timeline__container}>
@@ -29,8 +24,9 @@ export const Timeline: FC<ITimeline> = ({ events }) => {
       <CalendarHeader dates={weekDates} />
 
       <div className={style.grid__container}>
-        {events.map(({ eventTitle, startDate, endDate }) => (
+        {events.map(({ id, eventTitle, startDate, endDate }) => (
           <EventBox
+            id={id}
             title={eventTitle}
             startDate={startDate}
             endDate={endDate}

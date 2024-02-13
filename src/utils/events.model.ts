@@ -6,6 +6,7 @@ export interface ITimelineItems {
 }
 
 export interface IEventData {
+  id: number;
   eventTitle: string;
   startDate: string;
   endDate: string;

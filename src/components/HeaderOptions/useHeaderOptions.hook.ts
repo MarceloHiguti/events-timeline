@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
-import { useWeeksHeaderContext } from "../../utils/WeeksHeaderContext.util";
 import { getNewDates, translateMonth } from "../../utils/date.util";
+import { useEventsTimelineContext } from "../../utils/EventsTimelineContext.util";
 
 interface IHeaderOptionsResults {
   countPreviousWeek: () => void;
@@ -9,7 +9,7 @@ interface IHeaderOptionsResults {
 }
 
 export function useHeaderOptions(): IHeaderOptionsResults {
-  const { weekDates, setWeekDates } = useWeeksHeaderContext();
+  const { weekDates, setWeekDates } = useEventsTimelineContext();
 
   const countPreviousWeek = useCallback(() => {
     const firstDay = weekDates[0];
