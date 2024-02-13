@@ -1,0 +1,19 @@
+.header {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__monthButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #585ba2;
+  }
+
+  &__monthName {
+    font-size: 1.2rem;
+  }
+}

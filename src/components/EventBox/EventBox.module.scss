@@ -1,0 +1,58 @@
+@mixin gridColumnClasses($quantity) {
+  @for $i from 1 through $quantity + 1 {
+    .box__item__columns__#{$i} {
+      grid-column-end: span $i;
+    }
+  }
+}
+
+@mixin gridColumnStartClasses($quantity) {
+  @for $i from 1 through $quantity + 1 {
+    .box__item__columns__start__#{$i} {
+      grid-column-start: $i;
+    }
+  }
+}
+
+@mixin gridRowStartClasses($quantity) {
+  @for $i from 1 through $quantity + 1 {
+    .box__item__row__start__#{$i} {
+      grid-row-start: $i;
+    }
+  }
+}
+
+@include gridColumnClasses(7);
+@include gridColumnStartClasses(7);
+@include gridRowStartClasses(50);
+
+.box {
+  &__item {
+    flex: 1 0 auto;
+    background-color: #e2e2f6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    // text-align: center;
+
+    &__borderLeft {
+      border-left: 10px solid #585ba2;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    &__borderRight {
+      border-right: 10px solid #585ba2;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+}
+
+.eventTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+}

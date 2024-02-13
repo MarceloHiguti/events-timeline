@@ -1,0 +1,26 @@
+.timeline {
+  &__container {
+    padding: 5%;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &__text {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #585ba2;
+    }
+  }
+}
+
+.grid {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(100px, 1fr));
+    border: 1px solid black;
+  }
+}
